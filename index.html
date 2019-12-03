@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Tabs!</title>
+
+    <style type="text/css">
+      
+      body{
+        width: 1170px;
+        margin: auto;
+        padding: 2rem 0;
+        background: linear-gradient(to right, rgb(52, 143, 80), rgb(86, 180, 211));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .tab-container {
+        padding: 2rem;
+        background: #fff;
+        border-radius: 3px;
+      }
+
+      .tab-container .tab-info {
+        display: none;
+      }
+
+      .tab-container .tab-info.active {
+        display: block;
+        animation-name: opacity;
+        animation-duration: .5s;
+      }
+
+      .nav-container {
+        display: flex;
+        margin-left: 1rem;
+      }
+
+      .nav-container .tab-panel{
+        padding: 1rem;
+        margin-right: .1rem;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        cursor: pointer;
+        background: rgba(255,255,255,.3);
+        transition: .3s;
+      }
+
+      .nav-container .tab-panel:hover{
+        background: rgba(255,255,255,.5);
+      }
+
+      .nav-container .tab-panel.active{
+        margin-bottom: -1px;
+        cursor: default;
+        background: #fff;
+      }
+
+      @keyframes opacity{
+        0%{
+          opacity: 0;
+        }
+        50%{
+          opacity: .5;
+        }
+        100%{
+          opacity: 1;
+        }
+      }
+
+    </style>
+
+  </head>
+  <body>
+    
+    <div class="container-tabs" id="container-tabs">
+
+      <div class="nav-container">
+        <div class="tab-panel active">
+          Lorem ipsum Tab 1
+        </div>
+        <div class="tab-panel">
+          Lorem ipsum Tab 2
+        </div>
+        <div class="tab-panel">
+          Lorem ipsum Tab 3
+        </div>
+      </div>
+
+      <div class="tab-container">
+        <div class="tab-info active">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae fuga dolorem autem corporis qui, quod debitis recusandae illum ipsa necessitatibus ea minima, sit consectetur aperiam nam hic nesciunt amet temporibus! Eaque maxime ad amet incidunt tempore perspiciatis vel eos exercitationem, sit quos nihil ipsum a! Vitae numquam repudiandae magni repellat. 1</div>
+        <div class="tab-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure aliquam voluptas atque magnam neque. Placeat commodi, deserunt voluptate asperiores numquam provident dignissimos! Magnam quasi fugiat voluptates aliquid cumque quam doloribus, numquam vero minus. In, expedita impedit! Ipsum commodi odio et ullam, eos neque perspiciatis quos quasi consectetur deleniti iusto soluta. 2</div>
+        <div class="tab-info">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa assumenda a adipisci nulla asperiores omnis sequi, quis iusto totam illum expedita. Dicta, illo? Quisquam nemo explicabo totam earum temporibus optio architecto aliquam excepturi accusamus? Assumenda totam, qui excepturi ducimus molestiae praesentium inventore. Voluptatem numquam veritatis doloremque ipsum! Iure, animi! 3</div>
+      </div>
+
+    </div>  
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      
+      (function(){
+
+        let tab = Array.prototype.slice.apply(document.querySelectorAll('.tab-panel'));
+        let tabInfo = Array.prototype.slice.apply(document.querySelectorAll('.tab-info'));
+        let container = document.getElementById('container-tabs');
+
+        container.addEventListener('click', e => {
+          if(e.target.classList.contains('tab-panel')) {
+            let count = tab.indexOf(e.target);
+            tab.map(item => item.classList.remove('active'))
+            tab[count].classList.add('active')
+            tabInfo.map(itemInfo => itemInfo.classList.remove('active'))
+            tabInfo[count].classList.add('active')
+          }
+        })
+
+      })();
+      
+    </script>
+
+  </body>
+</html>
